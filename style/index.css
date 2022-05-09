@@ -1,0 +1,164 @@
+html,
+body {
+	-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+			box-sizing: border-box;
+}
+*, *:before, *:after {
+	-webkit-box-sizing: inherit;
+		-moz-box-sizing: inherit;
+			box-sizing: inherit;
+}
+html,
+body {
+	scroll-behavior: smooth;
+	font-family: 'Arial', 'Arial Regular', sans-serif;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 20px;
+	display: block;
+	padding: 0 0;
+	border: none;
+	margin: 0 0;
+}
+nav,
+div,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+	display: block;
+	padding: 0 0;
+	border: none;
+	margin: 0 0;
+}
+.body {
+	width: 100%;
+	font-family: 'Arial', 'Arial Regular', sans-serif;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 20px;
+	display: block;
+	padding: 0 0;
+	border: none;
+	margin: 0 0;
+}
+.wrap {
+	width: 100%;
+	max-width: 960px;
+	font-family: 'Arial', 'Arial Regular', sans-serif;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 20px;
+	margin: 1% auto;
+}
+p {
+	width: 100%;
+	max-width: 960px;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	border-radius: 15px;
+}
+
+textarea {
+	width: 100%;
+	max-width: 960px;
+	height: 260px;
+	display: block;
+	font-size: 25px;
+	padding: 5px 0 0 10px;
+	border-radius: 15px;
+	background: #ddd;
+	resize: none;
+}
+.keyboard {
+	width: 100%;
+	max-width: 960px;
+	height: 340px;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	border: 2px solid black;
+	background: #999;
+	gap: 7.5px;
+}
+.vkbkeys {
+	border-radius: 5px;
+	border: 1px solid black;
+	text-align: center;
+	line-height: 20px;
+	padding-top: 15px;
+	background: #666;
+	color: black;
+	-webkit-transition: background .3s, text-shadow .3s, box-shadow .3s, color .3s;
+		-moz-transition: background .3s, text-shadow .3s, box-shadow .3s, color .3s;
+			transition: background .3s, text-shadow .3s, box-shadow .3s, color .3s;
+}
+.keysize_1 {
+	width: 55px;
+	height: 55px;
+}
+.keysize_1x {
+	width: 55px;
+	height: 55px;
+	background: #444;
+}
+.keysize_2 {
+	width: 80px;
+	height: 55px;
+	background: #444;
+}
+.keysize_3 {
+	width: 115px;
+	height: 55px;
+	background: #444;
+}
+.keysize_4 {
+	width: 380px;
+	height: 55px;
+}
+.keyscolor {
+	background: #444;
+}
+.vkbkeys:hover,
+.vkbkeys:focus {
+	cursor: pointer;
+	background: indigo;
+	font-weight: bold;
+	border: 2px solid white;
+	color: white;
+	-webkit-transition: background .3s, text-shadow .3s, box-shadow .3s, color .3s;
+		-moz-transition: background .3s, text-shadow .3s, box-shadow .3s, color .3s;
+			transition: background .3s, text-shadow .3s, box-shadow .3s, color .3s;
+}
+.vkbkeys:active {
+	cursor: pointer;
+	background: blue;
+	font-weight: bold;
+	border: 2px solid white;
+	text-shadow: -1px 2px 3px cyan;
+	box-shadow: -2px 3px 4px cyan;
+	color: white;
+	-webkit-transition: background .3s, text-shadow .3s, box-shadow .3s, color .3s;
+		-moz-transition: background .3s, text-shadow .3s, box-shadow .3s, color .3s;
+			transition: background .3s, text-shadow .3s, box-shadow .3s, color .3s;
+}
+.keyactive {
+	cursor: pointer;
+	background: blue;
+	font-weight: bold;
+	border: 2px solid white;
+	text-shadow: -1px 2px 3px cyan;
+	box-shadow: -2px 3px 4px cyan;
+	color: white;
+	-webkit-transition: background .3s, text-shadow .3s, box-shadow .3s, color .3s;
+		-moz-transition: background .3s, text-shadow .3s, box-shadow .3s, color .3s;
+			transition: background .3s, text-shadow .3s, box-shadow .3s, color .3s;
+}
