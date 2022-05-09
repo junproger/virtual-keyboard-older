@@ -392,7 +392,7 @@ class KeyBoard {
       this.createKeysLayout();
     }
     // events shift down
-    if (event.key === 'Shift') {
+    if (event.key === 'Shift' && !event.altKey) {
       if (this.key_caps === false) {
         this.key_caps = true;
       } else {
@@ -516,7 +516,7 @@ class KeyBoard {
       return;
     }
     // events shift up
-    if (event.key === 'Shift') {
+    if (event.key === 'Shift' && !event.altKey) {
       if (this.key_caps === false) {
         this.key_caps = true;
       } else {
