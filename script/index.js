@@ -400,7 +400,7 @@ class KeyBoard {
         nodeAREA.value = nodeAREA.value.slice(0, -1);
         break;
       case 'Tab':
-        nodeAREA.value += '	';
+        nodeAREA.value += '    ';
         break;
       case 'Delete':
         nodeAREA.selectionStart = 0;
@@ -456,7 +456,7 @@ class KeyBoard {
         nodeAREA.value = nodeAREA.value.slice(0, -1);
         break;
       case 'Tab':
-        nodeAREA.value += '	';
+        nodeAREA.value += '    ';
         break;
       case 'Delete':
         nodeAREA.selectionStart = 0;
