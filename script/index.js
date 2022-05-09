@@ -319,40 +319,35 @@ class KeyBoard {
   }
 
   createKeysLayout() {
-    let j = 0;
     const nodeVKB = document.getElementById('VKB');
+    function parseKeys(part) {
+      let j = 0;
+      for (const child of nodeVKB.children) {
+        child.textContent = keydata[`${part}`][`${keycode[j]}`];
+        j += 1;
+      }
+    }
     if (this.key_lang === 'key_eng' && this.key_caps === false) {
-      for (const child of nodeVKB.children) {
-        child.textContent = keydata.key_eng[`${keycode[j]}`];
-        j += 1;
-      }
+      parseKeys('key_eng');
     } else if (this.key_lang === 'key_rus' && this.key_caps === false) {
-      for (const child of nodeVKB.children) {
-        child.textContent = keydata.key_rus[`${keycode[j]}`];
-        j += 1;
-      }
+      parseKeys('key_rus');
     } else if (this.key_lang === 'key_eng' && this.key_caps === true) {
-      for (const child of nodeVKB.children) {
-        child.textContent = keydata.eng_caps[`${keycode[j]}`];
-        j += 1;
-      }
+      parseKeys('eng_caps');
     } else if (this.key_lang === 'key_rus' && this.key_caps === true) {
-      for (const child of nodeVKB.children) {
-        child.textContent = keydata.rus_caps[`${keycode[j]}`];
-        j += 1;
-      }
+      parseKeys('rus_caps');
     }
   }
 
   printCurrentKey(code) {
+    const nodeAREA = document.getElementById('AREA');
     if (this.key_lang === 'key_eng' && this.key_caps === false) {
-      return keydata.key_eng[`${code}`];
+      nodeAREA.value += keydata.key_eng[`${code}`];
     } if (this.key_lang === 'key_rus' && this.key_caps === false) {
-      return keydata.key_rus[`${code}`];
+      nodeAREA.value += keydata.key_rus[`${code}`];
     } if (this.key_lang === 'key_eng' && this.key_caps === true) {
-      return keydata.eng_caps[`${code}`];
+      nodeAREA.value += keydata.eng_caps[`${code}`];
     } if (this.key_lang === 'key_rus' && this.key_caps === true) {
-      return keydata.rus_caps[`${code}`];
+      nodeAREA.value += keydata.rus_caps[`${code}`];
     }
   }
 
@@ -435,7 +430,7 @@ class KeyBoard {
         break;
       default:
         if (keycode.includes(event.code)) {
-          nodeAREA.value += this.printCurrentKey(event.code);
+          this.printCurrentKey(event.code);
         } else {
           break;
         }
@@ -499,7 +494,7 @@ class KeyBoard {
         break;
       default:
         if (keycode.includes(event.target.id)) {
-          nodeAREA.value += this.printCurrentKey(event.target.id);
+          this.printCurrentKey(event.target.id);
         } else {
           break;
         }
