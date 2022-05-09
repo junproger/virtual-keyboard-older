@@ -379,18 +379,30 @@ class KeyBoard {
     }
     // switch language
     if (((event.code === 'ShiftLeft') && event.altKey) || (event.shiftKey && (event.code === 'AltLeft'))) {
-      this.key_lang === 'key_eng' ? this.key_lang = 'key_rus' : this.key_lang = 'key_eng';
+      if (this.key_lang === 'key_eng') {
+        this.key_lang = 'key_rus';
+      } else {
+        this.key_lang = 'key_eng';
+      }
       localStorage.setItem('jun#2774VkbLang', this.key_lang);
       this.createKeysLayout();
     }
     // events caps down
     if (event.code === 'CapsLock') {
-      this.key_caps === false ? this.key_caps = true : this.key_caps = false;
+      if (this.key_caps === false) {
+        this.key_caps = true;
+      } else {
+        this.key_caps = false;
+      }
       this.createKeysLayout();
     }
     // events shift down
     if (event.key === 'Shift') {
-      this.key_caps === false ? this.key_caps = true : this.key_caps = false;
+      if (this.key_caps === false) {
+        this.key_caps = true;
+      } else {
+        this.key_caps = false;
+      }
       this.createKeysLayout();
     }
     // special keys
@@ -441,12 +453,20 @@ class KeyBoard {
     }
     // mouse caps down
     if (event.target.id === 'CapsLock') {
-      this.key_caps === false ? this.key_caps = true : this.key_caps = false;
+      if (this.key_caps === false) {
+        this.key_caps = true;
+      } else {
+        this.key_caps = false;
+      }
       this.createKeysLayout();
     }
     // events shift down
     if ((event.target.id === 'ShiftLeft') || (event.target.id === 'ShiftRight')) {
-      this.key_caps === false ? this.key_caps = true : this.key_caps = false;
+      if (this.key_caps === false) {
+        this.key_caps = true;
+      } else {
+        this.key_caps = false;
+      }
       this.createKeysLayout();
     }
     // special keys
@@ -502,7 +522,11 @@ class KeyBoard {
     }
     // events shift up
     if (event.key === 'Shift') {
-      this.key_caps === false ? this.key_caps = true : this.key_caps = false;
+      if (this.key_caps === false) {
+        this.key_caps = true;
+      } else {
+        this.key_caps = false;
+      }
       this.createKeysLayout();
     }
   }
@@ -516,7 +540,11 @@ class KeyBoard {
     }
     // mouse shift up
     if ((event.target.id === 'ShiftLeft') || (event.target.id === 'ShiftRight')) {
-      this.key_caps === false ? this.key_caps = true : this.key_caps = false;
+      if (this.key_caps === false) {
+        this.key_caps = true;
+      } else {
+        this.key_caps = false;
+      }
       this.createKeysLayout();
     }
   }
