@@ -2,11 +2,11 @@
   "name": "virtual-keyboard",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./script/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ./scripts",
-    "lint:fix": "eslint ./scripts --fix"
+    "lint": "eslint ./script",
+    "lint:fix": "eslint ./script --fix"
   },
   "keywords": [],
   "author": "",
