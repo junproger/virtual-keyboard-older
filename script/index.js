@@ -284,6 +284,7 @@ class KeyBoard {
     elementBody.insertAdjacentHTML('afterbegin', '<div class="wrap"></div>');
     const elementWrap = document.querySelector('.wrap');
     elementWrap.insertAdjacentHTML('beforeend', '<textarea class="textarea" id="AREA" readonly></textarea>');
+    this.nodeAREA = document.getElementById('AREA');
     elementWrap.insertAdjacentHTML('beforeend', '<p class="inform">Switch language: Left Alt + Left Shift. Designed for Windows</p>');
     elementWrap.insertAdjacentHTML('beforeend', '<div class="keyboard" id="VKB"></div>');
     this.elementVKB = document.querySelector('.keyboard');
@@ -337,15 +338,14 @@ class KeyBoard {
   }
 
   printCurrentKey(code) {
-    const nodeAREA = document.getElementById('AREA');
     if (this.key_lang === 'key_eng' && this.key_caps === false) {
-      nodeAREA.value += keydata.key_eng[`${code}`];
+      this.nodeAREA.value += keydata.key_eng[`${code}`];
     } if (this.key_lang === 'key_rus' && this.key_caps === false) {
-      nodeAREA.value += keydata.key_rus[`${code}`];
+      this.nodeAREA.value += keydata.key_rus[`${code}`];
     } if (this.key_lang === 'key_eng' && this.key_caps === true) {
-      nodeAREA.value += keydata.eng_caps[`${code}`];
+      this.nodeAREA.value += keydata.eng_caps[`${code}`];
     } if (this.key_lang === 'key_rus' && this.key_caps === true) {
-      nodeAREA.value += keydata.rus_caps[`${code}`];
+      this.nodeAREA.value += keydata.rus_caps[`${code}`];
     }
   }
 
@@ -357,7 +357,6 @@ class KeyBoard {
   }
 
   eventKeyDown(event) {
-    const nodeAREA = document.getElementById('AREA');
     // initial statement
     if (keycode.includes(event.code)) {
       event.preventDefault();
@@ -402,20 +401,20 @@ class KeyBoard {
     switch (event.code) {
       // can be used textContent
       case 'Backspace':
-        nodeAREA.value = nodeAREA.value.slice(0, -1);
+        this.nodeAREA.value = this.nodeAREA.value.slice(0, -1);
         break;
       case 'Tab':
-        nodeAREA.value += '    ';
+        this.nodeAREA.value += '    ';
         break;
       case 'Delete':
-        nodeAREA.selectionStart = 0;
-        nodeAREA.value = nodeAREA.value.slice(1, -1);
+        this.nodeAREA.selectionStart = 0;
+        this.nodeAREA.value = this.nodeAREA.value.slice(1, -1);
         break;
       case 'Enter':
-        nodeAREA.value += '\n';
+        this.nodeAREA.value += '\n';
         break;
       case 'Space':
-        nodeAREA.value += ' ';
+        this.nodeAREA.value += ' ';
         break;
       case 'CapsLock':
       case 'ShiftLeft':
@@ -437,7 +436,6 @@ class KeyBoard {
   }
 
   eventMouseDown(event) {
-    const nodeAREA = document.getElementById('AREA');
     // initial statement
     if (keycode.includes(event.target.id)) {
       event.preventDefault();
@@ -466,20 +464,20 @@ class KeyBoard {
     switch (event.target.id) {
       // can be used textContent
       case 'Backspace':
-        nodeAREA.value = nodeAREA.value.slice(0, -1);
+        this.nodeAREA.value = this.nodeAREA.value.slice(0, -1);
         break;
       case 'Tab':
-        nodeAREA.value += '    ';
+        this.nodeAREA.value += '    ';
         break;
       case 'Delete':
-        nodeAREA.selectionStart = 0;
-        nodeAREA.value = nodeAREA.value.slice(1, -1);
+        this.nodeAREA.selectionStart = 0;
+        this.nodeAREA.value = this.nodeAREA.value.slice(1, -1);
         break;
       case 'Enter':
-        nodeAREA.value += '\n';
+        this.nodeAREA.value += '\n';
         break;
       case 'Space':
-        nodeAREA.value += ' ';
+        this.nodeAREA.value += ' ';
         break;
       case 'CapsLock':
       case 'ShiftLeft':
