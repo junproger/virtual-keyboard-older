@@ -319,12 +319,10 @@ class KeyBoard {
   }
 
   createKeysLayout() {
-    const nodeVKB = document.getElementById('VKB');
+    const childrenVKB = document.getElementById('VKB').children;
     function parseKeys(part) {
-      let j = 0;
-      for (const child of nodeVKB.children) {
-        child.textContent = keydata[`${part}`][`${keycode[j]}`];
-        j += 1;
+      for (let j = 0; j <= 63; j += 1) {
+        childrenVKB[j].textContent = keydata[`${part}`][`${keycode[j]}`];
       }
     }
     if (this.key_lang === 'key_eng' && this.key_caps === false) {
