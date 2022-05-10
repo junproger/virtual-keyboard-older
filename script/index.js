@@ -392,7 +392,7 @@ class KeyBoard {
       this.createKeysLayout();
     }
     // events shift down
-    if (event.key === 'Shift' && !event.altKey) {
+    if (((event.key === 'Shift') && !event.altKey) || (event.shiftKey && (event.code !== 'AltLeft'))) {
       if (this.key_caps === false) {
         this.key_caps = true;
       } else {
@@ -455,7 +455,7 @@ class KeyBoard {
       }
       this.createKeysLayout();
     }
-    // events shift down
+    // mouse shift down
     if ((event.target.id === 'ShiftLeft') || (event.target.id === 'ShiftRight')) {
       if (this.key_caps === false) {
         this.key_caps = true;
@@ -516,7 +516,7 @@ class KeyBoard {
       return;
     }
     // events shift up
-    if (event.key === 'Shift' && !event.altKey) {
+    if (((event.key === 'Shift') && !event.altKey) || (event.shiftKey && (event.code !== 'AltLeft'))) {
       if (this.key_caps === false) {
         this.key_caps = true;
       } else {
