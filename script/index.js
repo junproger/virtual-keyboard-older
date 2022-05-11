@@ -1,4 +1,4 @@
-const keydata = {
+const EngKeysData = {
   key_eng: {
     Backquote: '`',
     Digit1: '1',
@@ -66,6 +66,72 @@ const keydata = {
     ControlRight: 'Ctrl',
   },
   eng_caps: {
+    Backquote: '`',
+    Digit1: '1',
+    Digit2: '2',
+    Digit3: '3',
+    Digit4: '4',
+    Digit5: '5',
+    Digit6: '6',
+    Digit7: '7',
+    Digit8: '8',
+    Digit9: '9',
+    Digit0: '0',
+    Minus: '-',
+    Equal: '=',
+    Backspace: 'Backspace',
+    Tab: 'Tab',
+    KeyQ: 'Q',
+    KeyW: 'W',
+    KeyE: 'E',
+    KeyR: 'R',
+    KeyT: 'T',
+    KeyY: 'Y',
+    KeyU: 'U',
+    KeyI: 'I',
+    KeyO: 'O',
+    KeyP: 'P',
+    BracketLeft: '[',
+    BracketRight: ']',
+    Backslash: '\\',
+    Delete: 'Del',
+    CapsLock: 'Caps Lock',
+    KeyA: 'A',
+    KeyS: 'S',
+    KeyD: 'D',
+    KeyF: 'F',
+    KeyG: 'G',
+    KeyH: 'H',
+    KeyJ: 'J',
+    KeyK: 'K',
+    KeyL: 'L',
+    Semicolon: ';',
+    Quote: '\'',
+    Enter: 'Enter',
+    ShiftLeft: 'Shift',
+    KeyZ: 'Z',
+    KeyX: 'X',
+    KeyC: 'C',
+    KeyV: 'V',
+    KeyB: 'B',
+    KeyN: 'N',
+    KeyM: 'M',
+    Comma: ',',
+    Period: '.',
+    Slash: '/',
+    ArrowUp: '▲',
+    ShiftRight: 'Shift',
+    ControlLeft: 'Ctrl',
+    MetaLeft: 'Win',
+    AltLeft: 'Alt',
+    Space: 'Space',
+    AltRight: 'Alt',
+    ArrowLeft: '◄',
+    ArrowDown: '▼',
+    ArrowRight: '►',
+    ControlRight: 'Ctrl',
+  },
+  eng_shift: {
     Backquote: '~',
     Digit1: '!',
     Digit2: '@',
@@ -131,6 +197,75 @@ const keydata = {
     ArrowRight: '►',
     ControlRight: 'Ctrl',
   },
+  eng_caps_shift: {
+    Backquote: '~',
+    Digit1: '!',
+    Digit2: '@',
+    Digit3: '#',
+    Digit4: '$',
+    Digit5: '%',
+    Digit6: '^',
+    Digit7: '&',
+    Digit8: '*',
+    Digit9: '(',
+    Digit0: ')',
+    Minus: '_',
+    Equal: '+',
+    Backspace: 'Backspace',
+    Tab: 'Tab',
+    KeyQ: 'q',
+    KeyW: 'w',
+    KeyE: 'e',
+    KeyR: 'r',
+    KeyT: 't',
+    KeyY: 'y',
+    KeyU: 'u',
+    KeyI: 'i',
+    KeyO: 'o',
+    KeyP: 'p',
+    BracketLeft: '{',
+    BracketRight: '}',
+    Backslash: '|',
+    Delete: 'Del',
+    CapsLock: 'Caps Lock',
+    KeyA: 'a',
+    KeyS: 's',
+    KeyD: 'd',
+    KeyF: 'f',
+    KeyG: 'g',
+    KeyH: 'h',
+    KeyJ: 'j',
+    KeyK: 'k',
+    KeyL: 'l',
+    Semicolon: ':',
+    Quote: '"',
+    Enter: 'Enter',
+    ShiftLeft: 'Shift',
+    KeyZ: 'z',
+    KeyX: 'x',
+    KeyC: 'c',
+    KeyV: 'v',
+    KeyB: 'b',
+    KeyN: 'n',
+    KeyM: 'm',
+    Comma: '<',
+    Period: '>',
+    Slash: '?',
+    ArrowUp: '▲',
+    ShiftRight: 'Shift',
+    ControlLeft: 'Ctrl',
+    MetaLeft: 'Win',
+    AltLeft: 'Alt',
+    Space: 'Space',
+    AltRight: 'Alt',
+    ArrowLeft: '◄',
+    ArrowDown: '▼',
+    ArrowRight: '►',
+    ControlRight: 'Ctrl',
+  },
+};
+
+const RusKeysData = {
   key_rus: {
     Backquote: 'ё',
     Digit1: '1',
@@ -199,6 +334,72 @@ const keydata = {
   },
   rus_caps: {
     Backquote: 'Ё',
+    Digit1: '1',
+    Digit2: '2',
+    Digit3: '3',
+    Digit4: '4',
+    Digit5: '5',
+    Digit6: '6',
+    Digit7: '7',
+    Digit8: '8',
+    Digit9: '9',
+    Digit0: '0',
+    Minus: '-',
+    Equal: '=',
+    Backspace: 'Backspace',
+    Tab: 'Tab',
+    KeyQ: 'Й',
+    KeyW: 'Ц',
+    KeyE: 'У',
+    KeyR: 'К',
+    KeyT: 'Е',
+    KeyY: 'Н',
+    KeyU: 'Г',
+    KeyI: 'Ш',
+    KeyO: 'Щ',
+    KeyP: 'З',
+    BracketLeft: 'Х',
+    BracketRight: 'Ъ',
+    Backslash: '\\',
+    Delete: 'Del',
+    CapsLock: 'Caps Lock',
+    KeyA: 'Ф',
+    KeyS: 'Ы',
+    KeyD: 'В',
+    KeyF: 'А',
+    KeyG: 'П',
+    KeyH: 'Р',
+    KeyJ: 'О',
+    KeyK: 'Л',
+    KeyL: 'Д',
+    Semicolon: 'Ж',
+    Quote: 'Э',
+    Enter: 'Enter',
+    ShiftLeft: 'Shift',
+    KeyZ: 'Я',
+    KeyX: 'Ч',
+    KeyC: 'С',
+    KeyV: 'М',
+    KeyB: 'И',
+    KeyN: 'Т',
+    KeyM: 'Ь',
+    Comma: 'Б',
+    Period: 'Ю',
+    Slash: '.',
+    ArrowUp: '▲',
+    ShiftRight: 'Shift',
+    ControlLeft: 'Ctrl',
+    MetaLeft: 'Win',
+    AltLeft: 'Alt',
+    Space: 'Space',
+    AltRight: 'Alt',
+    ArrowLeft: '◄',
+    ArrowDown: '▼',
+    ArrowRight: '►',
+    ControlRight: 'Ctrl',
+  },
+  rus_shift: {
+    Backquote: 'Ё',
     Digit1: '!',
     Digit2: '"',
     Digit3: '№',
@@ -263,6 +464,72 @@ const keydata = {
     ArrowRight: '►',
     ControlRight: 'Ctrl',
   },
+  rus_caps_shift: {
+    Backquote: 'ё',
+    Digit1: '!',
+    Digit2: '"',
+    Digit3: '№',
+    Digit4: ';',
+    Digit5: '%',
+    Digit6: ':',
+    Digit7: '?',
+    Digit8: '*',
+    Digit9: '(',
+    Digit0: ')',
+    Minus: '_',
+    Equal: '+',
+    Backspace: 'Backspace',
+    Tab: 'Tab',
+    KeyQ: 'й',
+    KeyW: 'ц',
+    KeyE: 'у',
+    KeyR: 'к',
+    KeyT: 'е',
+    KeyY: 'н',
+    KeyU: 'г',
+    KeyI: 'ш',
+    KeyO: 'щ',
+    KeyP: 'з',
+    BracketLeft: 'х',
+    BracketRight: 'ъ',
+    Backslash: '/',
+    Delete: 'Del',
+    CapsLock: 'Caps Lock',
+    KeyA: 'ф',
+    KeyS: 'ы',
+    KeyD: 'в',
+    KeyF: 'а',
+    KeyG: 'п',
+    KeyH: 'р',
+    KeyJ: 'о',
+    KeyK: 'л',
+    KeyL: 'д',
+    Semicolon: 'ж',
+    Quote: 'э',
+    Enter: 'Enter',
+    ShiftLeft: 'Shift',
+    KeyZ: 'я',
+    KeyX: 'ч',
+    KeyC: 'с',
+    KeyV: 'м',
+    KeyB: 'и',
+    KeyN: 'т',
+    KeyM: 'ь',
+    Comma: 'б',
+    Period: 'ю',
+    Slash: ',',
+    ArrowUp: '▲',
+    ShiftRight: 'Shift',
+    ControlLeft: 'Ctrl',
+    MetaLeft: 'Win',
+    AltLeft: 'Alt',
+    Space: 'Space',
+    AltRight: 'Alt',
+    ArrowLeft: '◄',
+    ArrowDown: '▼',
+    ArrowRight: '►',
+    ControlRight: 'Ctrl',
+  },
 };
 
 const keycode = ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace', 'Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'Delete', 'CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Enter', 'ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'ShiftRight', 'ControlLeft', 'MetaLeft', 'AltLeft', 'Space', 'AltRight', 'ArrowLeft', 'ArrowDown', 'ArrowRight', 'ControlRight'];
@@ -270,6 +537,7 @@ const keycode = ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 
 class KeyBoard {
   constructor(lang = 'key_eng') {
     this.key_caps = false;
+    this.key_shift = false;
     this.key_lang = lang;
     if (localStorage.getItem('jun#2774VkbLang')) {
       this.key_lang = localStorage.getItem('jun#2774VkbLang');
@@ -321,31 +589,53 @@ class KeyBoard {
 
   createKeysLayout() {
     const childrenVKB = document.getElementById('KEYB').children;
-    function parseKeys(part) {
-      for (let j = 0; j <= 63; j += 1) {
-        childrenVKB[j].textContent = keydata[`${part}`][`${keycode[j]}`];
+    function parseKeys(data, part) {
+      if (data === 'key_eng') {
+        for (let j = 0; j <= 63; j += 1) {
+          childrenVKB[j].textContent = EngKeysData[`${part}`][`${keycode[j]}`];
+        }
+      } else if (data === 'key_rus') {
+        for (let j = 0; j <= 63; j += 1) {
+          childrenVKB[j].textContent = RusKeysData[`${part}`][`${keycode[j]}`];
+        }
       }
     }
-    if (this.key_lang === 'key_eng' && this.key_caps === false) {
-      parseKeys('key_eng');
-    } else if (this.key_lang === 'key_rus' && this.key_caps === false) {
-      parseKeys('key_rus');
+    if (this.key_lang === 'key_eng' && (this.key_caps === false && this.key_shift === false)) {
+      parseKeys('key_eng', 'key_eng');
+    } else if (this.key_lang === 'key_eng' && (this.key_caps === true && this.key_shift === true)) {
+      parseKeys('key_eng', 'eng_caps_shift');
+    } else if (this.key_lang === 'key_rus' && (this.key_caps === false && this.key_shift === false)) {
+      parseKeys('key_rus', 'key_rus');
+    } else if (this.key_lang === 'key_rus' && (this.key_caps === true && this.key_shift === true)) {
+      parseKeys('key_rus', 'rus_caps_shift');
     } else if (this.key_lang === 'key_eng' && this.key_caps === true) {
-      parseKeys('eng_caps');
+      parseKeys('key_eng', 'eng_caps');
     } else if (this.key_lang === 'key_rus' && this.key_caps === true) {
-      parseKeys('rus_caps');
+      parseKeys('key_rus', 'rus_caps');
+    } else if (this.key_lang === 'key_eng' && this.key_shift === true) {
+      parseKeys('key_eng', 'eng_shift');
+    } else if (this.key_lang === 'key_rus' && this.key_shift === true) {
+      parseKeys('key_rus', 'rus_shift');
     }
   }
 
   printCurrentKey(code) {
-    if (this.key_lang === 'key_eng' && this.key_caps === false) {
-      this.nodeAREA.value += keydata.key_eng[`${code}`];
-    } else if (this.key_lang === 'key_rus' && this.key_caps === false) {
-      this.nodeAREA.value += keydata.key_rus[`${code}`];
+    if (this.key_lang === 'key_eng' && (this.key_caps === false && this.key_shift === false)) {
+      this.nodeAREA.value += EngKeysData.key_eng[`${code}`];
+    } else if (this.key_lang === 'key_eng' && (this.key_caps === true && this.key_shift === true)) {
+      this.nodeAREA.value += EngKeysData.eng_caps_shift[`${code}`];
+    } else if (this.key_lang === 'key_rus' && (this.key_caps === false && this.key_shift === false)) {
+      this.nodeAREA.value += RusKeysData.key_rus[`${code}`];
+    } else if (this.key_lang === 'key_rus' && (this.key_caps === true && this.key_shift === true)) {
+      this.nodeAREA.value += RusKeysData.rus_caps_shift[`${code}`];
     } else if (this.key_lang === 'key_eng' && this.key_caps === true) {
-      this.nodeAREA.value += keydata.eng_caps[`${code}`];
+      this.nodeAREA.value += EngKeysData.eng_caps[`${code}`];
     } else if (this.key_lang === 'key_rus' && this.key_caps === true) {
-      this.nodeAREA.value += keydata.rus_caps[`${code}`];
+      this.nodeAREA.value += RusKeysData.rus_caps[`${code}`];
+    } else if (this.key_lang === 'key_eng' && this.key_shift === true) {
+      this.nodeAREA.value += EngKeysData.eng_shift[`${code}`];
+    } else if (this.key_lang === 'key_rus' && this.key_shift === true) {
+      this.nodeAREA.value += RusKeysData.rus_shift[`${code}`];
     }
   }
 
@@ -361,7 +651,6 @@ class KeyBoard {
       this.nodeAREA.selectionStart = 0;
       this.nodeAREA.selectionEnd = 0;
       this.nodeAREA.focus();
-      return;
     }
     if ((exec === 'delete') && (startIndex !== this.nodeAREA.value.length)) {
       this.nodeAREA.value = this.nodeAREA.value.replace((this.nodeAREA.value.charAt(startIndex)), '');
@@ -418,10 +707,10 @@ class KeyBoard {
     }
     // events shift down
     if ((!event.altKey || event.code !== 'AltLeft') && (event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
-      if (this.key_caps === false) {
-        this.key_caps = true;
+      if (this.key_shift === false) {
+        this.key_shift = true;
       } else {
-        this.key_caps = false;
+        this.key_shift = false;
       }
       this.createKeysLayout();
     }
@@ -478,10 +767,10 @@ class KeyBoard {
     }
     // events shift up
     if ((!event.altKey || event.code !== 'AltLeft') && (event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
-      if (this.key_caps === true) {
-        this.key_caps = false;
+      if (this.key_shift === false) {
+        this.key_shift = true;
       } else {
-        this.key_caps = true;
+        this.key_shift = false;
       }
       this.createKeysLayout();
     }
@@ -507,10 +796,10 @@ class KeyBoard {
     }
     // mouse shift down
     if ((event.target.id === 'ShiftLeft') || (event.target.id === 'ShiftRight')) {
-      if (this.key_caps === false) {
-        this.key_caps = true;
+      if (this.key_shift === false) {
+        this.key_shift = true;
       } else {
-        this.key_caps = false;
+        this.key_shift = false;
       }
       this.createKeysLayout();
     }
@@ -561,10 +850,10 @@ class KeyBoard {
     }
     // mouse shift up
     if ((event.target.id === 'ShiftLeft') || (event.target.id === 'ShiftRight')) {
-      if (this.key_caps === true) {
-        this.key_caps = false;
+      if (this.key_shift === false) {
+        this.key_shift = true;
       } else {
-        this.key_caps = true;
+        this.key_shift = false;
       }
       this.createKeysLayout();
     }
