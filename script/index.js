@@ -286,7 +286,7 @@ class KeyBoard {
     elementWrap.insertAdjacentHTML('beforeend', '<textarea class="textarea" id="AREA" readonly></textarea>');
     this.nodeAREA = document.getElementById('AREA');
     elementWrap.insertAdjacentHTML('beforeend', '<p class="inform">Switch language: Left Alt + Left Shift. Designed for Windows</p>');
-    elementWrap.insertAdjacentHTML('beforeend', '<div class="keyboard" id="VKB"></div>');
+    elementWrap.insertAdjacentHTML('beforeend', '<div class="keyboard" id="KEYB"></div>');
     this.elementVKB = document.querySelector('.keyboard');
     this.createKeysFragments();
   }
@@ -320,7 +320,7 @@ class KeyBoard {
   }
 
   createKeysLayout() {
-    const childrenVKB = document.getElementById('VKB').children;
+    const childrenVKB = document.getElementById('KEYB').children;
     function parseKeys(part) {
       for (let j = 0; j <= 63; j += 1) {
         childrenVKB[j].textContent = keydata[`${part}`][`${keycode[j]}`];
@@ -340,11 +340,11 @@ class KeyBoard {
   printCurrentKey(code) {
     if (this.key_lang === 'key_eng' && this.key_caps === false) {
       this.nodeAREA.value += keydata.key_eng[`${code}`];
-    } if (this.key_lang === 'key_rus' && this.key_caps === false) {
+    } else if (this.key_lang === 'key_rus' && this.key_caps === false) {
       this.nodeAREA.value += keydata.key_rus[`${code}`];
-    } if (this.key_lang === 'key_eng' && this.key_caps === true) {
+    } else if (this.key_lang === 'key_eng' && this.key_caps === true) {
       this.nodeAREA.value += keydata.eng_caps[`${code}`];
-    } if (this.key_lang === 'key_rus' && this.key_caps === true) {
+    } else if (this.key_lang === 'key_rus' && this.key_caps === true) {
       this.nodeAREA.value += keydata.rus_caps[`${code}`];
     }
   }
@@ -356,6 +356,8 @@ class KeyBoard {
     document.addEventListener('mouseup', (event) => this.eventMouseUp(event));
   }
 
+  // BOARD EVENTS
+  // BOARD KEYS DOWN
   eventKeyDown(event) {
     // initial statement
     if (keycode.includes(event.code)) {
@@ -389,7 +391,7 @@ class KeyBoard {
       this.createKeysLayout();
     }
     // events shift down
-    if (((event.key === 'Shift') && !event.altKey) || (event.shiftKey && (event.code !== 'AltLeft'))) {
+    if (!event.altKey && (event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
       if (this.key_caps === false) {
         this.key_caps = true;
       } else {
@@ -435,6 +437,33 @@ class KeyBoard {
     }
   }
 
+  // BOARD KEYS UP
+  eventKeyUp(event) {
+    // initial statement
+    if (keycode.includes(event.code)) {
+      event.preventDefault();
+    } else {
+      return;
+    }
+    // keys highlight
+    if (keycode.includes(event.code)) {
+      document.getElementById(`${event.code}`).classList.remove('keyactive');
+    } else {
+      return;
+    }
+    // events shift up
+    if (!event.altKey && (event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
+      if (this.key_caps === true) {
+        this.key_caps = false;
+      } else {
+        this.key_caps = true;
+      }
+      this.createKeysLayout();
+    }
+  }
+
+  // MOUSE EVENTS
+  // MOUSE KEYS DOWN
   eventMouseDown(event) {
     // initial statement
     if (keycode.includes(event.target.id)) {
@@ -498,30 +527,7 @@ class KeyBoard {
     }
   }
 
-  eventKeyUp(event) {
-    // initial statement
-    if (keycode.includes(event.code)) {
-      event.preventDefault();
-    } else {
-      return;
-    }
-    // keys highlight
-    if (keycode.includes(event.code)) {
-      document.getElementById(`${event.code}`).classList.remove('keyactive');
-    } else {
-      return;
-    }
-    // events shift up
-    if (((event.key === 'Shift') && !event.altKey) || (event.shiftKey && (event.code !== 'AltLeft'))) {
-      if (this.key_caps === false) {
-        this.key_caps = true;
-      } else {
-        this.key_caps = false;
-      }
-      this.createKeysLayout();
-    }
-  }
-
+  // MOUSE KEYS UP
   eventMouseUp(event) {
     // initial statement
     if (keycode.includes(event.target.id)) {
@@ -531,10 +537,10 @@ class KeyBoard {
     }
     // mouse shift up
     if ((event.target.id === 'ShiftLeft') || (event.target.id === 'ShiftRight')) {
-      if (this.key_caps === false) {
-        this.key_caps = true;
-      } else {
+      if (this.key_caps === true) {
         this.key_caps = false;
+      } else {
+        this.key_caps = true;
       }
       this.createKeysLayout();
     }
