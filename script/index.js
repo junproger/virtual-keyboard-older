@@ -283,7 +283,7 @@ class KeyBoard {
     elementBody.classList.add('body');
     elementBody.insertAdjacentHTML('afterbegin', '<div class="wrap"></div>');
     const elementWrap = document.querySelector('.wrap');
-    elementWrap.insertAdjacentHTML('beforeend', '<textarea class="textarea" id="AREA" readonly></textarea>');
+    elementWrap.insertAdjacentHTML('beforeend', '<textarea class="textarea" id="AREA" autofocus></textarea>');
     this.nodeAREA = document.getElementById('AREA');
     elementWrap.insertAdjacentHTML('beforeend', '<p class="inform">Switch language: Left Alt + Left Shift. Designed for Windows</p>');
     elementWrap.insertAdjacentHTML('beforeend', '<div class="keyboard" id="KEYB"></div>');
@@ -349,6 +349,29 @@ class KeyBoard {
     }
   }
 
+  editSelectedKeys(exec) {
+    let startIndex = this.nodeAREA.selectionStart;
+    let finishIndex = this.nodeAREA.selectionEnd;
+      if ((exec === 'backsp') && (startIndex !== 0)) {
+        this.nodeAREA.value = this.nodeAREA.value.replace((this.nodeAREA.value.charAt(finishIndex - 1)), '');
+        this.nodeAREA.selectionStart = this.nodeAREA.selectionEnd = finishIndex - 1;
+        this.nodeAREA.focus();
+      } else if ((exec === 'backsp') && (startIndex === 0)) {
+        this.nodeAREA.selectionStart = this.nodeAREA.selectionEnd = 0;
+        this.nodeAREA.focus();
+        return;
+      }
+      if ((exec === 'delete') && (startIndex !== this.nodeAREA.value.length)) {
+        this.nodeAREA.value = this.nodeAREA.value.replace((this.nodeAREA.value.charAt(startIndex)), '');
+        this.nodeAREA.selectionStart = this.nodeAREA.selectionEnd = startIndex;
+        this.nodeAREA.focus();
+      } else if ((exec === 'delete') && (startIndex === this.nodeAREA.value.length)) {
+        this.nodeAREA.selectionStart = this.nodeAREA.selectionEnd = this.nodeAREA.value.length;
+        this.nodeAREA.focus();
+        return;
+      }
+  }
+
   addEventsListeners() {
     document.addEventListener('keydown', (event) => this.eventKeyDown(event));
     document.addEventListener('keyup', (event) => this.eventKeyUp(event));
@@ -391,7 +414,7 @@ class KeyBoard {
       this.createKeysLayout();
     }
     // events shift down
-    if (!event.altKey && (event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
+    if ((!event.altKey || event.code !== 'AltLeft') && (event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
       if (this.key_caps === false) {
         this.key_caps = true;
       } else {
@@ -403,14 +426,13 @@ class KeyBoard {
     switch (event.code) {
       // can be used textContent
       case 'Backspace':
-        this.nodeAREA.value = this.nodeAREA.value.slice(0, -1);
+        this.editSelectedKeys('backsp');
         break;
       case 'Tab':
         this.nodeAREA.value += '    ';
         break;
       case 'Delete':
-        this.nodeAREA.selectionStart = 0;
-        this.nodeAREA.value = this.nodeAREA.value.slice(1, -1);
+        this.editSelectedKeys('delete');
         break;
       case 'Enter':
         this.nodeAREA.value += '\n';
@@ -452,7 +474,7 @@ class KeyBoard {
       return;
     }
     // events shift up
-    if (!event.altKey && (event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
+    if ((!event.altKey || event.code !== 'AltLeft') && (event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
       if (this.key_caps === true) {
         this.key_caps = false;
       } else {
@@ -493,14 +515,13 @@ class KeyBoard {
     switch (event.target.id) {
       // can be used textContent
       case 'Backspace':
-        this.nodeAREA.value = this.nodeAREA.value.slice(0, -1);
+        this.editSelectedKeys('backsp');
         break;
       case 'Tab':
         this.nodeAREA.value += '    ';
         break;
       case 'Delete':
-        this.nodeAREA.selectionStart = 0;
-        this.nodeAREA.value = this.nodeAREA.value.slice(1, -1);
+        this.editSelectedKeys('delete');
         break;
       case 'Enter':
         this.nodeAREA.value += '\n';
