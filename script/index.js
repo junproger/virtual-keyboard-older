@@ -350,26 +350,29 @@ class KeyBoard {
   }
 
   editSelectedKeys(exec) {
-    let startIndex = this.nodeAREA.selectionStart;
-    let finishIndex = this.nodeAREA.selectionEnd;
-      if ((exec === 'backsp') && (startIndex !== 0)) {
-        this.nodeAREA.value = this.nodeAREA.value.replace((this.nodeAREA.value.charAt(finishIndex - 1)), '');
-        this.nodeAREA.selectionStart = this.nodeAREA.selectionEnd = finishIndex - 1;
-        this.nodeAREA.focus();
-      } else if ((exec === 'backsp') && (startIndex === 0)) {
-        this.nodeAREA.selectionStart = this.nodeAREA.selectionEnd = 0;
-        this.nodeAREA.focus();
-        return;
-      }
-      if ((exec === 'delete') && (startIndex !== this.nodeAREA.value.length)) {
-        this.nodeAREA.value = this.nodeAREA.value.replace((this.nodeAREA.value.charAt(startIndex)), '');
-        this.nodeAREA.selectionStart = this.nodeAREA.selectionEnd = startIndex;
-        this.nodeAREA.focus();
-      } else if ((exec === 'delete') && (startIndex === this.nodeAREA.value.length)) {
-        this.nodeAREA.selectionStart = this.nodeAREA.selectionEnd = this.nodeAREA.value.length;
-        this.nodeAREA.focus();
-        return;
-      }
+    const startIndex = this.nodeAREA.selectionStart;
+    const finishIndex = this.nodeAREA.selectionEnd;
+    if ((exec === 'backsp') && (startIndex !== 0)) {
+      this.nodeAREA.value = this.nodeAREA.value.replace((this.nodeAREA.value.charAt(finishIndex - 1)), '');
+      this.nodeAREA.selectionStart = finishIndex - 1;
+      this.nodeAREA.selectionEnd = finishIndex - 1;
+      this.nodeAREA.focus();
+    } else if ((exec === 'backsp') && (startIndex === 0)) {
+      this.nodeAREA.selectionStart = 0;
+      this.nodeAREA.selectionEnd = 0;
+      this.nodeAREA.focus();
+      return;
+    }
+    if ((exec === 'delete') && (startIndex !== this.nodeAREA.value.length)) {
+      this.nodeAREA.value = this.nodeAREA.value.replace((this.nodeAREA.value.charAt(startIndex)), '');
+      this.nodeAREA.selectionStart = startIndex;
+      this.nodeAREA.selectionEnd = startIndex;
+      this.nodeAREA.focus();
+    } else if ((exec === 'delete') && (startIndex === this.nodeAREA.value.length)) {
+      this.nodeAREA.selectionStart = this.nodeAREA.value.length;
+      this.nodeAREA.selectionEnd = this.nodeAREA.value.length;
+      this.nodeAREA.focus();
+    }
   }
 
   addEventsListeners() {
