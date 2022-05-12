@@ -642,12 +642,12 @@ class KeyBoard {
   editSelectedKeys(exec) {
     const startIndex = this.nodeAREA.selectionStart;
     const finishIndex = this.nodeAREA.selectionEnd;
-    if ((exec === 'backsp') && (startIndex !== 0)) {
+    if ((exec === 'backsp') && (finishIndex !== 0)) {
       this.nodeAREA.value = this.nodeAREA.value.replace((this.nodeAREA.value.charAt(finishIndex - 1)), '');
       this.nodeAREA.selectionStart = finishIndex - 1;
       this.nodeAREA.selectionEnd = finishIndex - 1;
       this.nodeAREA.focus();
-    } else if ((exec === 'backsp') && (startIndex === 0)) {
+    } else if ((exec === 'backsp') && (finishIndex === 0)) {
       this.nodeAREA.selectionStart = 0;
       this.nodeAREA.selectionEnd = 0;
       this.nodeAREA.focus();
@@ -668,7 +668,6 @@ class KeyBoard {
     document.addEventListener('keydown', (event) => this.eventKeyDown(event));
     document.addEventListener('keyup', (event) => this.eventKeyUp(event));
     document.addEventListener('mousedown', (event) => this.eventMouseDown(event));
-    document.addEventListener('mouseup', (event) => this.eventMouseUp(event));
   }
 
   // BOARD EVENTS
@@ -831,31 +830,16 @@ class KeyBoard {
       case 'ControlRight':
         break;
       default:
-        if (keycode.includes(event.target.id)) {
+        if (keycode.includes(event.target.id) && (this.key_shift === true)) {
+          this.printCurrentKey(event.target.id);
+          this.key_shift = false;
+          this.createKeysLayout();
+        } else if (keycode.includes(event.target.id) && (this.key_shift === false)) {
           this.printCurrentKey(event.target.id);
         } else {
           break;
         }
         break;
-    }
-  }
-
-  // MOUSE KEYS UP
-  eventMouseUp(event) {
-    // initial statement
-    if (keycode.includes(event.target.id)) {
-      event.preventDefault();
-    } else {
-      return;
-    }
-    // mouse shift up
-    if ((event.target.id === 'ShiftLeft') || (event.target.id === 'ShiftRight')) {
-      if (this.key_shift === false) {
-        this.key_shift = true;
-      } else {
-        this.key_shift = false;
-      }
-      this.createKeysLayout();
     }
   }
 }
